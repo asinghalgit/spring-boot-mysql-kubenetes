@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-deployment
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: spring-boot-mysql
+          image: anshulsinghal612/spring-boot-mysql:v4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
